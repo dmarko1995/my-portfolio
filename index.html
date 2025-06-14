@@ -4,85 +4,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Портфоліо Дмитра</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Russo+One&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
   <style>
+    /* Текстурний фон — легкий камуфляж */
     body {
-      background: linear-gradient(135deg, #0057b7 0%, #ffd700 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #0a0a0a;
-      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #0099ff 0%, #ffd700 100%);
+      min-height: 100vh;
+      color: #222;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/camo-pattern.png');
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     header {
-      background-color: #003580;
+      background-color: rgba(0, 51, 102, 0.85);
       color: #ffd700;
-      padding: 20px 0;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-    }
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      background: rgba(255 255 255 / 0.9);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      text-align: left;
-    }
-    h1, h2 {
-      margin-bottom: 15px;
-    }
-    .section {
+      padding: 40px 0;
+      text-align: center;
       margin-bottom: 40px;
+      font-family: 'Russo One', sans-serif;
+      text-shadow: 1px 1px 3px #000;
+      border-bottom: 4px solid #ffd700;
+      position: relative;
+      z-index: 1;
     }
-    .contacts p {
-      margin: 5px 0;
-      font-weight: 600;
+
+    main {
+      max-width: 800px;
+      margin: 0 auto 60px;
+      padding: 20px 30px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
     }
-    .resume-section h2 {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-      color: #003580;
-    }
-    .resume-section h2 svg {
-      width: 36px;
-      height: 36px;
-      fill: #ffd700;
-    }
-    .resume-content p, .resume-content ul {
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-    .resume-content ul {
-      padding-left: 20px;
-    }
-    .resume-content strong {
-      color: #003580;
-    }
-    .btn-download {
-      display: inline-block;
-      background-color: #003580;
-      color: #ffd700;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background-color 0.3s ease;
+
+    h2 {
+      margin-bottom: 20px;
+      color: #003366;
+      font-family: 'Russo One', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-left: 5px solid #ffd700;
+      padding-left: 10px;
       margin-top: 30px;
     }
-    .btn-download:hover {
-      background-color: #001f4d;
+
+    p {
+      font-size: 1.1rem;
+      color: #222;
     }
-    /* Іконки соцмереж */
-    .icon {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      fill: #003580;
+
+    .contact-info i {
+      color: #007acc;
       margin-right: 8px;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #007acc;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffd700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: rgba(0, 51, 102, 0.85);
+      color: #ffd700;
+      font-family: 'Russo One', sans-serif;
+      text-shadow: 1px 1px 3px #000;
+      border-top: 4px solid #ffd700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-resume {
+      background-color: #003366;
+      color: #ffd700;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 8px #ffd700;
+      font-family: 'Russo One', sans-serif;
+      text-transform: uppercase;
+    }
+    .btn-resume:hover {
+      background-color: #ffd700;
+      color: #003366;
+      box-shadow: 0 0 15px #003366;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -93,59 +139,44 @@
   </header>
 
   <main>
-    <section class="section about-me">
+    <section>
       <h2>Про мене</h2>
       <p>Я початківець у веброзробці, вивчаю HTML, Git та хостинг через GitHub Pages.</p>
     </section>
 
-    <section class="section contacts">
+    <section>
       <h2>Контакти</h2>
-      <p>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        Email: dmarko1995@icloud.com
-      </p>
-      <p>
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        Telegram: @dmarko
-      </p>
-    </section>
-
-    <section class="section resume-section" aria-label="Резюме Дмитра Марковича">
-      <h2>
-        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" >
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6"/>
-        </svg>
-        Моє Резюме
-      </h2>
-      <div class="resume-content">
-        <p><strong>МАРКОВИЧ ДМИТРО</strong></p>
-        <p><strong>Освіта:</strong> Херсонське морехідне училище (2011-2015)<br />
-          Спеціальність: Експлуатація суднових енергетичних установок<br />
-          Професійна кваліфікація: Судномеханік
-        </p>
-        <p><strong>Курси / Сертифікація:</strong></p>
-        <ul>
-          <li>SoftServe Academy (Курс DEVOPS FUNDAMENTALS)</li>
-          <li>Google AI Essentials (Курс)</li>
-        </ul>
-        <p><strong>Досвід роботи:</strong></p>
-        <ul>
-          <li>НГУ Військова служба під час мобілізації (21.03.2022 - 23.03.2024) — стрілець, командир мінометного розрахунку, військове звання: головний сержант.</li>
-          <li>Інспектор служби безпеки (10.2021 - 01.2024) — Агроко, СТОВ, Чорнобай (агробізнес).</li>
-          <li>Інспектор прикордонної служби (06.2017 – 06.2021) — аналітична, розвідувальна діяльність.</li>
-          <li>Адміністратор супермаркету (04.2016 - 02.2017) — ЛК-Транс, Київ.</li>
-        </ul>
-        <p><strong>Ціль:</strong> Маю військовий досвід, аналітичне мислення та практичні навички роботи з Linux. Пройшов курси DevOps Fundamentals (SoftServe Academy) та Google AI Essentials, що дало базу в автоматизації, CI/CD, хмарних технологіях та основах штучного інтелекту. Швидко навчаюся, мотивований розвиватися в ІТ і готовий ефективно працювати в команді.</p>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> dmarko1995@icloud.com</p>
+        <p><i class="fab fa-telegram"></i> @dmarko</p>
       </div>
-      <div style="text-align: center;">
-        <a href="resume.pdf" target="_blank" class="btn-download" rel="noopener noreferrer" aria-label="Відкрити резюме у PDF">
-          📥 Відкрити резюме (PDF)
+      <div class="social-icons">
+        <a href="https://github.com/dmarko1995" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://t.me/dmarko" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="mailto:dmarko1995@icloud.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
         </a>
       </div>
     </section>
+
+    <section>
+      <h2>Резюме</h2>
+      <a href="resume.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-file-pdf"></i> Завантажити резюме PDF
+      </a>
+    </section>
   </main>
+
+  <footer>
+    <p>© 2025 Дмитро Маркович</p>
+  </footer>
 </body>
 </html>
+
 
 
 
