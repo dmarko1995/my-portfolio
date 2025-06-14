@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Портфоліо Дмитра</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Roboto + Military-style font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Russo+One&display=swap" rel="stylesheet" />
 
   <!-- Bootstrap CSS -->
   <link
@@ -21,53 +21,87 @@
   />
 
   <style>
+    /* Фон - градієнт від блакитного до жовтого */
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f0f8ff;
+      background: linear-gradient(to bottom, #0099ff 0%, #ffd700 100%);
+      min-height: 100vh;
+      color: #222;
     }
+
     header {
-      background-color: #007acc;
-      color: white;
+      background-color: rgba(0, 51, 102, 0.85); /* темно-синій з прозорістю */
+      color: #ffd700; /* жовтий */
       padding: 40px 0;
       text-align: center;
       margin-bottom: 40px;
+      font-family: 'Russo One', sans-serif;
+      text-shadow: 1px 1px 3px #000;
+      border-bottom: 4px solid #ffd700;
     }
+
     main {
       max-width: 800px;
       margin: 0 auto 60px;
       padding: 0 15px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
+
     h2 {
       margin-bottom: 20px;
-      color: #004080;
+      color: #003366; /* темно-синій */
+      font-family: 'Russo One', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-left: 5px solid #ffd700;
+      padding-left: 10px;
+      margin-top: 30px;
     }
+
     p {
       font-size: 1.1rem;
+      color: #222;
     }
+
     .contact-info i {
       color: #007acc;
       margin-right: 8px;
     }
+
     footer {
       text-align: center;
       padding: 20px 0;
-      background-color: #e0e7ef;
-      color: #555;
+      background-color: rgba(0, 51, 102, 0.85);
+      color: #ffd700;
+      font-family: 'Russo One', sans-serif;
+      text-shadow: 1px 1px 3px #000;
+      border-top: 4px solid #ffd700;
+      position: relative;
     }
-    /* Кнопка для резюме */
+
+    /* Кнопка для резюме у військовому стилі */
     .btn-resume {
-      background-color: #007acc;
-      color: white;
-      transition: background-color 0.3s ease;
+      background-color: #003366;
+      color: #ffd700;
+      transition: background-color 0.3s ease, color 0.3s ease;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 12px 24px;
+      border-radius: 8px;
       display: inline-block;
       margin-top: 20px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 8px #ffd700;
+      font-family: 'Russo One', sans-serif;
+      text-transform: uppercase;
     }
     .btn-resume:hover {
-      background-color: #005a99;
-      color: white;
+      background-color: #ffd700;
+      color: #003366;
+      box-shadow: 0 0 15px #003366;
       text-decoration: none;
     }
   </style>
@@ -79,12 +113,12 @@
   </header>
 
   <main>
-    <section class="mb-5">
+    <section>
       <h2>Про мене</h2>
       <p>Я початківець у веброзробці, вивчаю HTML, Git та хостинг через GitHub Pages.</p>
     </section>
 
-    <section class="mb-5">
+    <section>
       <h2>Контакти</h2>
       <div class="contact-info">
         <p><i class="fas fa-envelope"></i> dmarko1995@icloud.com</p>
@@ -94,7 +128,6 @@
 
     <section>
       <h2>Резюме</h2>
-      <!-- Кнопка завантаження резюме -->
       <a href="resume.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">
         <i class="fas fa-file-pdf"></i> Завантажити резюме PDF
       </a>
@@ -106,4 +139,5 @@
   </footer>
 </body>
 </html>
+
 
