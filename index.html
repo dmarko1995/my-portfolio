@@ -2,161 +2,221 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Портфоліо Дмитра</title>
-
-  <!-- Google Fonts: Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p0mOw6ndDmVLjRlW0Q62Cr4kAaewPq6d1r6+YQfcGPRtnVt/t9lvh+XYzF1czb9oYzv7JxSY4Ipxy1QXRY/hyg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <style>
-    /* Базові стилі */
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
+    /* --- Основні стилі --- */
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #0057b7 0%, #ffd700 100%);
-      color: #111;
-      min-height: 100vh;
+      color: #222;
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255 255 255 / 0.9);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgb(0 0 0 / 0.15);
+      position: relative;
+      z-index: 10;
+    }
+    h1, h2 {
+      margin: 0 0 20px 0;
+      font-weight: 700;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    /* --- Іконки соцмереж --- */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .social-icons a {
+      color: #0057b7;
+      font-size: 2rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #ffd700;
+      transform: scale(1.3);
+    }
+    /* --- Форма контакту --- */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      overflow-x: hidden;
+      gap: 15px;
     }
-
-    header {
-      background-color: #003580;
-      color: #ffd700;
-      width: 100%;
-      max-width: 900px;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.25);
-      text-align: center;
-      animation: fadeInDown 1s ease forwards;
-      margin-bottom: 40px;
+    input, textarea {
+      font-size: 1rem;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      resize: vertical;
+      transition: border-color 0.3s ease;
     }
-
-    main {
-      background: rgba(255 255 255 / 0.9);
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 900px;
-      padding: 30px 40px;
-      animation: fadeInUp 1s ease forwards;
+    input:focus, textarea:focus {
+      border-color: #0057b7;
+      outline: none;
     }
-
-    h1, h2 {
-      margin: 0 0 15px 0;
+    button {
+      background: #0057b7;
+      color: white;
       font-weight: 700;
-    }
-
-    h2 {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #003580;
-      font-size: 1.9rem;
-    }
-
-    h2 i {
-      color: #ffd700;
-      font-size: 1.8rem;
-    }
-
-    .section {
-      margin-bottom: 40px;
-    }
-
-    p, ul {
-      font-weight: 500;
-      line-height: 1.6;
-      color: #222;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
-
-    .contacts p {
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
       font-size: 1.1rem;
-      margin: 10px 0;
+      transition: background-color 0.3s ease;
     }
-
-    .contacts i {
-      color: #003580;
-      margin-right: 10px;
+    button:hover {
+      background-color: #003d7a;
     }
-
-    .btn-download {
-      display: inline-block;
-      background-color: #003580;
-      color: #ffd700;
-      font-weight: 700;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-      margin-top: 30px;
-      font-size: 1.1rem;
-    }
-
-    .btn-download:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
-
-    /* Анімації */
-    @keyframes fadeInDown {
-      0% {opacity: 0; transform: translateY(-30px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(30px);}
-      100% {opacity: 1; transform: translateY(0);}
+    /* --- Контейнер для частинок --- */
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+      pointer-events: none;
     }
   </style>
+  <!-- Іконки fontawesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+  <!-- Фон з частинками -->
+  <div id="particles-js"></div>
+
   <header>
     <h1>Привіт, я Дмитро 👋</h1>
     <p>Мій персональний вебсайт-портфоліо</p>
   </header>
 
   <main>
-    <section class="section about-me" aria-label="Про мене">
-      <h2><i class="fa-solid fa-user"></i>Про мене</h2>
+    <section class="section about">
+      <h2>Про мене</h2>
       <p>Я початківець у веброзробці, вивчаю HTML, Git та хостинг через GitHub Pages.</p>
     </section>
 
-    <section class="section contacts" aria-label="Контакти">
-      <h2><i class="fa-solid fa-address-book"></i>Контакти</h2>
-      <p><i class="fa-solid fa-envelope"></i> Email: dmarko1995@icloud.com</p>
-      <p><i class="fa-brands fa-telegram"></i> Telegram: @dmarko95</p>
-    </section>
+    <section class="section contacts">
+      <h2>Контакти</h2>
+      <p>Email: dmarko1995@icloud.com</p>
+      <p>Telegram: <a href="https://t.me/dmarko" target="_blank">@dmarko</a></p>
 
-    <section class="section resume-section" aria-label="Резюме Дмитра Марковича">
-      <h2><i class="fa-solid fa-file-pdf"></i>Моє Резюме</h2>
-      <p>Можеш завантажити або переглянути моє резюме у форматі PDF за кнопкою нижче.</p>
-      <div style="text-align:center;">
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-download" aria-label="Відкрити резюме у PDF">
-          <i class="fa-solid fa-download"></i> Відкрити резюме (PDF)
-        </a>
+      <div class="social-icons">
+        <a href="https://github.com/dmarko1995" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/dmarko" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://linkedin.com/in/dmarko1995" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       </div>
     </section>
+
+    <section class="section contact-form">
+      <h2>Напишіть мені</h2>
+      <form id="contactForm" onsubmit="return validateForm()">
+        <input type="text" id="name" name="name" placeholder="Ваше ім'я" required />
+        <input type="email" id="email" name="email" placeholder="Ваш email" required />
+        <textarea id="message" name="message" placeholder="Ваше повідомлення" rows="5" required></textarea>
+        <button type="submit">Відправити</button>
+      </form>
+    </section>
   </main>
+
+  <!-- particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    /* Ініціалізація частинок */
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 50,
+          "density": {"enable": true, "value_area": 800}
+        },
+        "color": {"value": ["#0057b7", "#ffd700"]},
+        "shape": {"type": "circle"},
+        "opacity": {
+          "value": 0.7,
+          "random": true,
+          "anim": {"enable": true, "speed": 1, "opacity_min": 0.1, "sync": false}
+        },
+        "size": {
+          "value": 4,
+          "random": true,
+          "anim": {"enable": true, "speed": 4, "size_min": 0.3, "sync": false}
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#0057b7",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "bounce",
+          "bounce": true,
+          "attract": {"enable": false}
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {"enable": true, "mode": "grab"},
+          "onclick": {"enable": true, "mode": "push"},
+          "resize": true
+        },
+        "modes": {
+          "grab": {"distance": 140, "line_linked": {"opacity": 0.6}},
+          "bubble": {"distance": 200, "size": 8, "duration": 2, "opacity": 0.8},
+          "repulse": {"distance": 100},
+          "push": {"particles_nb": 4},
+          "remove": {"particles_nb": 2}
+        }
+      },
+      "retina_detect": true
+    });
+
+    /* Проста валідація форми */
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Будь ласка, заповніть всі поля!');
+        return false;
+      }
+      alert('Дякую за ваше повідомлення! Я з вами зв\'яжусь найближчим часом.');
+      document.getElementById('contactForm').reset();
+      return false; // не відправляємо дійсно, бо бекенду нема
+    }
+  </script>
 </body>
 </html>
+
 
 
 
