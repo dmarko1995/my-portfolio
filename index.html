@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Портфоліо Дмитра</title>
   <style>
-    /* --- Основні стилі --- */
     body, html {
       margin: 0; padding: 0; height: 100%;
       font-family: 'Arial', sans-serif;
@@ -40,7 +39,7 @@
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
-    /* --- Іконки соцмереж --- */
+    /* Іконки соцмереж */
     .social-icons {
       display: flex;
       justify-content: center;
@@ -57,41 +56,66 @@
       color: #ffd700;
       transform: scale(1.3);
     }
-    /* --- Форма контакту --- */
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, textarea {
-      font-size: 1rem;
-      padding: 10px 15px;
-      border-radius: 8px;
-      border: 1px solid #aaa;
-      resize: vertical;
-      transition: border-color 0.3s ease;
-    }
-    input:focus, textarea:focus {
-      border-color: #0057b7;
-      outline: none;
-    }
-    button {
-      background: #0057b7;
+    /* Кнопка Резюме */
+    .btn-resume {
+      display: inline-block;
+      background-color: #0057b7;
       color: white;
       font-weight: 700;
       border: none;
       border-radius: 8px;
-      padding: 12px;
+      padding: 12px 28px;
       cursor: pointer;
       font-size: 1.1rem;
       transition: background-color 0.3s ease;
+      text-decoration: none;
+      margin: 0 auto 40px;
+      user-select: none;
     }
-    button:hover {
+    .btn-resume:hover {
       background-color: #003d7a;
     }
-    /* --- Контейнер для частинок --- */
+    /* Модальне вікно */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      padding: 60px 20px;
+      box-sizing: border-box;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 25px rgb(0 0 0 / 0.2);
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.5;
+      white-space: pre-wrap; /* щоб переносити \n */
+    }
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0057b7;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .close-btn:hover {
+      color: #003d7a;
+    }
+    /* Фон для частинок */
     #particles-js {
       position: fixed;
       top: 0; left: 0;
@@ -100,12 +124,10 @@
       pointer-events: none;
     }
   </style>
-  <!-- Іконки fontawesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- Фон з частинками -->
   <div id="particles-js"></div>
 
   <header>
@@ -129,40 +151,75 @@
         <a href="https://t.me/dmarko" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
         <a href="https://linkedin.com/in/dmarko1995" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       </div>
-    </section>
 
-    <section class="section contact-form">
-      <h2>Напишіть мені</h2>
-      <form id="contactForm" onsubmit="return validateForm()">
-        <input type="text" id="name" name="name" placeholder="Ваше ім'я" required />
-        <input type="email" id="email" name="email" placeholder="Ваш email" required />
-        <textarea id="message" name="message" placeholder="Ваше повідомлення" rows="5" required></textarea>
-        <button type="submit">Відправити</button>
-      </form>
+      <button class="btn-resume" id="openResumeBtn">Резюме</button>
     </section>
   </main>
+
+  <!-- Модальне вікно резюме -->
+  <div id="resumeModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <span class="close-btn" id="closeResumeBtn" aria-label="Закрити резюме">&times;</span>
+      <h2 id="modalTitle">Резюме Дмитра</h2>
+      <pre>
+МАРКОВИЧ ДМИТРО
+ОСВІТА
+Херсонське морехідне училище
+2011-2015
+Спеціальність: Експлуатація суднових енергетичних установок
+Професійна кваліфікація: Судномеханік
+
+КУРСИ/СЕРТИФІКАЦІЯ
+SoftServe Academy (Курс DEVOPS FUNDAMENTALS)
+Google AI Essentials (Курс)
+
+ДОСВІД РОБОТИ
+НГУ ВІЙСЬКОВА СЛУЖБА ПІД ЧАС МОБІЛІЗАЦІЇ
+21.03.2022-23.03.2024 (Стрілець, командир мінометного розрахунку)
+Військове звання: Головний сержант
+Участь у взаємодії із Збройними Силами України та іншими військовими формуваннями у відбитті вторгнення, нападу на територію України збройних сил РФ.
+- Управління підрозділом
+- Відповідальність, прийняття рішень у стресових умовах
+
+ІНСПЕКТОР СЛУЖБИ БЕЗПЕКИ
+з 10.2021 по 01.2024 (2 роки 3 місяці)
+Агроко, СТОВ, Чорнобай (Сільське господарство, агробізнес)
+
+ІНСПЕКТОР ПРИКОРДОННОЇ СЛУЖБИ
+06.2017 – 06.2021
+- Аналітична, розвідувальна діяльність
+- Дотримання правового режиму, командна взаємодія
+
+АДМІНІСТРАТОР СУПЕРМАРКЕТУ
+з 04.2016 по 02.2017 (10 місяців)
+ЛК-Транс, Київ (Продаж продовольчих товарів)
+Дотримання та контроль касової дисципліни згідно чинного законодавства
+Приймання товару та документальний супровід
+Управління персоналом магазину
+
+ЦІЛЬ
+Маю військовий досвід, аналітичне мислення та практичні навички роботи з Linux. Пройшов курси DevOps Fundamentals (SoftServe Academy) та Google AI Essentials, що дало базу в автоматизації, CI/CD, хмарних технологіях та основах штучного інтелекту. Швидко навчаюся, мотивований розвиватися в ІТ і готовий ефективно працювати в команді
+      </pre>
+    </div>
+  </div>
 
   <!-- particles.js library -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    /* Ініціалізація частинок */
     particlesJS("particles-js", {
       "particles": {
-        "number": {
-          "value": 50,
-          "density": {"enable": true, "value_area": 800}
-        },
-        "color": {"value": ["#0057b7", "#ffd700"]},
-        "shape": {"type": "circle"},
+        "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": ["#0057b7", "#ffd700"] },
+        "shape": { "type": "circle" },
         "opacity": {
           "value": 0.7,
           "random": true,
-          "anim": {"enable": true, "speed": 1, "opacity_min": 0.1, "sync": false}
+          "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
         },
         "size": {
           "value": 4,
           "random": true,
-          "anim": {"enable": true, "speed": 4, "size_min": 0.3, "sync": false}
+          "anim": { "enable": true, "speed": 4, "size_min": 0.3, "sync": false }
         },
         "line_linked": {
           "enable": true,
@@ -179,43 +236,60 @@
           "straight": false,
           "out_mode": "bounce",
           "bounce": true,
-          "attract": {"enable": false}
+          "attract": { "enable": false }
         }
       },
       "interactivity": {
         "detect_on": "canvas",
         "events": {
-          "onhover": {"enable": true, "mode": "grab"},
-          "onclick": {"enable": true, "mode": "push"},
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" },
           "resize": true
         },
         "modes": {
-          "grab": {"distance": 140, "line_linked": {"opacity": 0.6}},
-          "bubble": {"distance": 200, "size": 8, "duration": 2, "opacity": 0.8},
-          "repulse": {"distance": 100},
-          "push": {"particles_nb": 4},
-          "remove": {"particles_nb": 2}
+          "grab": { "distance": 140, "line_linked": { "opacity": 0.6 } },
+          "bubble": { "distance": 200, "size": 8, "duration": 2, "opacity": 0.8 },
+          "repulse": { "distance": 100 },
+          "push": { "particles_nb": 4 },
+          "remove": { "particles_nb": 2 }
         }
       },
       "retina_detect": true
     });
 
-    /* Проста валідація форми */
-    function validateForm() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if (!name || !email || !message) {
-        alert('Будь ласка, заповніть всі поля!');
-        return false;
+    // Логіка модального вікна
+    const openBtn = document.getElementById('openResumeBtn');
+    const modal = document.getElementById('resumeModal');
+    const closeBtn = document.getElementById('closeResumeBtn');
+
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modal.setAttribute('aria-hidden', 'false');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+    });
+
+    window.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
       }
-      alert('Дякую за ваше повідомлення! Я з вами зв\'яжусь найближчим часом.');
-      document.getElementById('contactForm').reset();
-      return false; // не відправляємо дійсно, бо бекенду нема
-    }
+    });
+
+    // Закриття модалки по клавіші Escape
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
   </script>
 </body>
 </html>
+
 
 
 
