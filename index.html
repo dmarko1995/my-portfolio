@@ -3,244 +3,275 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Портфоліо Дмитра</title>
+  <title>Dmytro Markovych | QA Engineer</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Russo+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #0099ff 0%, #ffd700 100%);
-      min-height: 100vh;
-      color: #222;
-      position: relative;
-      overflow-x: hidden;
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --accent-blue: #38bdf8;
+      --accent-yellow: #fbbf24;
+      --text-main: #f8fafc;
+      --text-dim: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('https://www.transparenttextures.com/patterns/camo-pattern.png');
-      opacity: 0.1;
-      pointer-events: none;
-      z-index: 0;
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 35%),
+        radial-gradient(circle at 100% 100%, rgba(251, 191, 36, 0.1) 0%, transparent 35%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 20px;
     }
 
     header {
-      background-color: rgba(0, 51, 102, 0.85);
-      color: #ffd700;
-      padding: 40px 20px;
       text-align: center;
-      margin-bottom: 40px;
-      font-family: 'Russo One', sans-serif;
-      text-shadow: 1px 1px 3px #000;
-      border-bottom: 4px solid #ffd700;
-      position: relative;
-      z-index: 1;
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--text-dim);
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
     main {
-      max-width: 800px;
-      margin: 0 auto 60px;
-      padding: 20px 30px 40px;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-      position: relative;
-      z-index: 1;
-      transition: transform 0.3s ease;
+      max-width: 900px;
+      margin: 0 auto 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
     }
 
-    main:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    section {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 35px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    section:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-section {
+      grid-column: span 2;
     }
 
     h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
       margin-bottom: 20px;
-      color: #003366;
-      font-family: 'Russo One', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border-left: 5px solid #ffd700;
-      padding-left: 10px;
-      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent-blue);
     }
 
     p {
-      font-size: 1.1rem;
-      color: #222;
-      line-height: 1.6;
+      color: var(--text-dim);
+      font-size: 1.05rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .skill-tag {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-main);
     }
 
     .contact-info i {
-      color: #007acc;
-      margin-right: 8px;
-      transition: color 0.3s ease;
+      color: var(--accent-yellow);
+      width: 20px;
     }
 
-    .contact-info p:hover i {
-      color: #ffd700;
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
     }
 
-    .social-icons {
-      margin-top: 15px;
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.3s;
     }
 
-    .social-icons a {
-      margin: 0 10px;
-      color: #007acc;
-      font-size: 1.8rem;
-      transition: color 0.3s ease, transform 0.3s ease;
-      display: inline-block;
+    .social-links a:hover {
+      background: var(--accent-blue);
+      color: var(--bg-color);
+      transform: rotate(-8deg);
     }
 
-    .social-icons a:hover {
-      color: #ffd700;
-      text-shadow: 0 0 8px #ffd700;
-      transform: scale(1.2);
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-resume {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 16px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.3s;
+    }
+
+    .btn-resume:hover {
+      background: var(--text-main);
+      color: var(--bg-color);
+      transform: scale(1.02);
+    }
+
+    .btn-resume i {
+      font-size: 1.2rem;
+      opacity: 0.7;
     }
 
     footer {
       text-align: center;
-      padding: 20px 0;
-      background-color: rgba(0, 51, 102, 0.85);
-      color: #ffd700;
-      font-family: 'Russo One', sans-serif;
-      text-shadow: 1px 1px 3px #000;
-      border-top: 4px solid #ffd700;
-      position: relative;
-      z-index: 1;
+      padding: 40px;
+      color: var(--text-dim);
+      font-size: 0.9rem;
     }
 
-    .btn-resume {
-      background-color: #003366;
-      color: #ffd700;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-top: 20px;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      border: 2px solid #ffd700;
-      box-shadow: 0 0 8px #ffd700;
-      font-family: 'Russo One', sans-serif;
-      text-transform: uppercase;
-    }
-    .btn-resume:hover {
-      background-color: #ffd700;
-      color: #003366;
-      box-shadow: 0 0 15px #003366;
-      text-decoration: none;
-      transform: scale(1.05);
-    }
-
-    /* Адаптивність */
-    @media (max-width: 600px) {
+    /* Mobile */
+    @media (max-width: 768px) {
       main {
-        margin: 0 15px 40px;
-        padding: 20px;
+        grid-template-columns: 1fr;
       }
-
-      h2 {
-        font-size: 1.4rem;
+      .about-section {
+        grid-column: span 1;
       }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .social-icons a {
-        font-size: 1.5rem;
-        margin: 0 8px;
-      }
-
-      .btn-resume {
-        padding: 10px 18px;
-        font-size: 0.9rem;
+      header h1 {
+        font-size: 2.2rem;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Hello, I'm Dmitry. 👋</h1>
-    <p style="color: #ffd700; font-weight: bold; font-size: 1.2rem;">Curriculum Vitae</p>
+    <h1>Hi, I'm Dmytro</h1>
+    <p>QA Engineer | DevOps Learner | Linux Enthusiast</p>
   </header>
 
   <main>
-    <section>
-      <h2>About me</h2>
-      <p>I have military experience, developed analytical thinking and attention to  
-details. I have basic Linux skills. I completed the  
-DevOps Fundamentals course (SoftServe Academy), where I gained an 
-understanding of CI/CD  
-and automation processes. I have practical experience in QA thanks to an  
-internship at G5 Games. I am currently studying at EPAM in the  
-QA direction. I am focused on development in the field of testing, teamwork and  
-quality results. 
+    <section class="about-section">
+      <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
+      <p>
+        Військовий досвід навчив мене залізній дисципліні та увазі до деталей — якостей, які я тепер інвестую в якість програмного забезпечення. 
+        Маю практичний досвід QA після стажування в <strong>G5 Games</strong> та розуміння CI/CD процесів завдяки SoftServe Academy. 
+        Зараз поглиблюю знання в EPAM, фокусуючись на автоматизації та ретельному тестуванні.
+      </p>
+      <div class="skills-grid">
+        <span class="skill-tag">Manual QA</span>
+        <span class="skill-tag">Linux (Terminal)</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">DevOps Basics</span>
+        <span class="skill-tag">Bug Reporting</span>
+        <span class="skill-tag">Test Design</span>
+      </div>
     </section>
 
     <section>
-      <h2>Contacts</h2>
+      <h2><i class="fas fa-paper-plane"></i> Contacts</h2>
       <div class="contact-info">
         <p><i class="fas fa-envelope"></i> dmarko1995@icloud.com</p>
         <p><i class="fab fa-telegram"></i> @dmarko95</p>
       </div>
-      <div class="social-icons">
-        <a href="https://github.com/dmarko1995" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://t.me/dmarko95" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-          <i class="fab fa-telegram"></i>
-        </a>
-        <a href="mailto:dmarko1995@icloud.com" aria-label="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
+      <div class="social-links">
+        <a href="https://github.com/dmarko1995" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/dmarko95" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="mailto:dmarko1995@icloud.com"><i class="fas fa-envelope"></i></a>
       </div>
     </section>
 
     <section>
-  <h2>CV</h2>
-  <a href="resume.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">
-    <i class="fas fa-file-pdf"></i> Curriculum Vitae (ENG)
-  </a>
-  <br />
-  <a href="CV.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">
-    <i class="fas fa-file-pdf"></i> Curriculum Vitae (UA)
-  </a>
-  <br /><br />    
-  <a href="portfolio.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">
-    <i class="fas fa-file-pdf"></i> View works
-  </a>
-       </section>
+      <h2><i class="fas fa-file-code"></i> Documents</h2>
+      <div class="btn-group">
+        <a href="resume.pdf" class="btn-resume" target="_blank">
+          <span>Curriculum Vitae (ENG)</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="CV.pdf" class="btn-resume" target="_blank">
+          <span>Curriculum Vitae (UA)</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="portfolio.pdf" class="btn-resume" target="_blank">
+          <span>View Case Studies</span>
+          <i class="fas fa-eye"></i>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 Dmytro Markovych</p>
+    <p>© 2026 Designed with precision by Dmytro Markovych</p>
   </footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
